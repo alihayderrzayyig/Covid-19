@@ -1,0 +1,630 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+/* top | right | bottom | left */
+body {
+  font-family: "Tajawal", Arial, sans-serif;
+  background: #f0f0f0;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+  box-sizing: border-box; }
+
+a {
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #474646;
+  text-decoration: none; }
+  a:hover, a:focus {
+    color: #474646;
+    outline: none !important; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 400; }
+
+.oh {
+  overflow: hidden !important; }
+
+.ml--2 {
+  margin-left: -2px; }
+
+.mr--2 {
+  margin-right: -2px; }
+
+.pt-1-added {
+  padding-top: 8.1625rem !important; }
+
+.h1-header {
+  font-weight: 600;
+  font-size: 3rem; }
+
+.h2-header {
+  font-weight: 600;
+  font-size: 2rem; }
+
+.bg-nav {
+  background-color: #f8f9fa !important; }
+
+.navbar {
+  padding: 0; }
+  .navbar .container-fluid {
+    max-width: 1250px;
+    flex-direction: row; }
+    .navbar .container-fluid .navbar-brand {
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #2a4e72; }
+      .navbar .container-fluid .navbar-brand span {
+        color: #ff2881; }
+    .navbar .container-fluid .navbar-collapse {
+      flex-direction: row-reverse; }
+      .navbar .container-fluid .navbar-collapse .me-auto {
+        margin: auto; }
+      .navbar .container-fluid .navbar-collapse .navbar-nav {
+        flex-direction: row-reverse;
+        align-items: center; }
+        .navbar .container-fluid .navbar-collapse .navbar-nav .nav-link {
+          position: relative;
+          color: #34495e;
+          font-size: 1.2rem;
+          font-weight: 500;
+          border-bottom: transparent 2px solid;
+          padding-left: 2rem !important;
+          padding-right: 2rem !important; }
+        .navbar .container-fluid .navbar-collapse .navbar-nav .navbar-brand {
+          display: none !important; }
+        .navbar .container-fluid .navbar-collapse .navbar-nav .nav-link:hover {
+          background-color: #d4e4f3;
+          border-bottom: #5d5f61 2px solid; }
+        .navbar .container-fluid .navbar-collapse .navbar-nav .active {
+          color: #2c3e50;
+          background-color: #d4e4f3;
+          border-bottom: #5d5f61 2px solid; }
+        .navbar .container-fluid .navbar-collapse .navbar-nav .disabled {
+          color: #bdc3c7; }
+    .navbar .container-fluid .btn-group a img {
+      object-fit: cover; }
+    .navbar .container-fluid .btn-group .dropdown-menu .dropdown-item {
+      display: flex;
+      align-items: center;
+      justify-content: right; }
+      .navbar .container-fluid .btn-group .dropdown-menu .dropdown-item i {
+        font-size: 1.5rem;
+        display: inline-block;
+        margin-left: 0.5rem; }
+    .navbar .container-fluid .login {
+      margin-left: 1rem;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500; }
+      .navbar .container-fluid .login:hover {
+        color: #3a79b8; }
+
+#header {
+  position: relative;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+  background-image: linear-gradient(to top, rgba(148, 177, 147, 0.89), rgba(230, 229, 229, 0.925)), url(/img/covid-19.png);
+  background-size: cover;
+  background-position: top; }
+  #header .section-header h1 {
+    color: #2a4e72 !important;
+    font-size: 4rem;
+    font-weight: 600; }
+  #header .section-header h2 {
+    color: #ff2881 !important;
+    font-size: 3rem;
+    font-weight: 600; }
+  #header .section-header h3 {
+    color: #2a4e72 !important;
+    font-size: 2rem;
+    font-weight: 600; }
+  #header .section-wrapper {
+    text-align: center; }
+  #header #summary {
+    overflow: hidden;
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    padding: 1rem;
+    background-color: #f7f7f7;
+    direction: rtl;
+    border-radius: 5px; }
+    #header #summary .header {
+      font-weight: 500; }
+    #header #summary .summary-card {
+      display: flex;
+      align-items: center; }
+      #header #summary .summary-card .img {
+        width: 95px; }
+      #header #summary .summary-card .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-right: 1rem; }
+        #header #summary .summary-card .text h5,
+        #header #summary .summary-card .text h2 {
+          padding: 0;
+          margin: 0; }
+        #header #summary .summary-card .text .title {
+          color: #5d5f61; }
+
+#all-summary {
+  background-color: #f5f5f5;
+  direction: rtl;
+  padding: 9rem 0 5rem 0; }
+  #all-summary td.new_death {
+    background: #34495e;
+    color: #fff; }
+  #all-summary td.new_case {
+    background: #ff6b6b; }
+  #all-summary td.new_recovered {
+    background: #38ada9;
+    color: #fff; }
+  #all-summary td.the-contry {
+    background: #e7f5f4; }
+
+#test {
+  background-color: #fd076d;
+  padding: 5rem;
+  direction: rtl; }
+  #test h1,
+  #test h4,
+  #test h3 {
+    color: white; }
+  #test h3 {
+    font-weight: 500; }
+  #test .row .symptom-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    #test .row .symptom-card .img {
+      width: 150px;
+      height: 200px; }
+      #test .row .symptom-card .img img {
+        width: 100%;
+        height: 100%; }
+
+#login {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+  background-image: linear-gradient(to right bottom, rgba(31, 214, 247, 0.767), rgba(27, 233, 72, 0.808)), url("/img/covid-19.png");
+  height: 550px; }
+  #login .container .card {
+    direction: rtl;
+    max-width: 500px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    border-radius: 10px; }
+    #login .container .card h3 {
+      font-weight: 500;
+      color: #5c5a5a; }
+    #login .container .card .text-center a {
+      color: #3a79b8; }
+
+#register {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+  background-image: linear-gradient(to right bottom, rgba(31, 214, 247, 0.767), rgba(27, 233, 72, 0.808)), url("/img/covid-19.png"); }
+  #register .container .card {
+    direction: rtl;
+    max-width: 500px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    border-radius: 10px; }
+    #register .container .card h3 {
+      font-weight: 500;
+      color: #5c5a5a; }
+    #register .container .card .text-center a {
+      color: #3a79b8; }
+
+#about-header {
+  display: block;
+  overflow: hidden;
+  height: 350px;
+  background-color: #f5f5f5; }
+  #about-header .container-fluid {
+    padding: 0;
+    position: absolute; }
+    #about-header .container-fluid .image {
+      background-color: #353535;
+      display: block;
+      overflow: hidden;
+      width: 50%;
+      height: 100%;
+      float: left; }
+      #about-header .container-fluid .image img {
+        display: block;
+        width: 100%;
+        height: 350px; }
+    #about-header .container-fluid .text {
+      padding-left: 2rem !important;
+      padding-right: 2rem !important;
+      direction: rtl;
+      width: 50%;
+      float: right; }
+      #about-header .container-fluid .text h1 {
+        font-weight: 500; }
+
+#footer {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+  background-color: #353535; }
+  #footer .container h5 {
+    color: #e7f5f4; }
+  #footer .container .social-Media {
+    display: flex;
+    justify-content: center; }
+    #footer .container .social-Media a {
+      margin-left: 1rem !important;
+      margin-right: 1rem !important; }
+      #footer .container .social-Media a img {
+        width: 2rem;
+        height: 2rem; }
+
+#slider {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important; }
+  #slider h1 {
+    font-weight: 500;
+    margin-bottom: 2rem; }
+  #slider .card {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent; }
+    #slider .card .img {
+      width: 180px;
+      height: 200px; }
+    #slider .card .card-body h5 {
+      font-weight: 500; }
+
+#about-programmer {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+  background-image: linear-gradient(to right bottom, rgba(5, 146, 146, 0.911), rgba(30, 31, 29, 0.822)), url("/img/coding.jpg");
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover; }
+  #about-programmer .container h1 {
+    color: wheat; }
+  #about-programmer .container .row .card .text-center {
+    font-weight: 500; }
+  #about-programmer .container .row .card .img {
+    width: 150px;
+    height: 150px; }
+    #about-programmer .container .row .card .img img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%; }
+
+#connectWithUs {
+  background-image: linear-gradient(to right bottom, rgba(12, 202, 202, 0.9), rgba(176, 194, 18, 0.9)), url("/img/covid-19.png");
+  padding: 5rem 0; }
+  #connectWithUs .container .h1-header {
+    color: #252525;
+    margin-bottom: 2rem; }
+  #connectWithUs .container .card3 {
+    max-width: 950px;
+    margin: 0 auto;
+    display: flex;
+    overflow: hidden;
+    background-color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px #3e3e3e4f; }
+    #connectWithUs .container .card3 .right {
+      padding: 3rem;
+      width: 70%;
+      height: 100%; }
+      #connectWithUs .container .card3 .right .form-control {
+        direction: rtl;
+        font-weight: 500; }
+    #connectWithUs .container .card3 .left {
+      padding: 3rem 2rem;
+      background-color: #027878;
+      width: 30%;
+      height: inherit;
+      color: white; }
+      #connectWithUs .container .card3 .left h4 {
+        color: white;
+        text-align: right;
+        margin-bottom: 2rem; }
+      #connectWithUs .container .card3 .left ul li {
+        margin-right: 1rem; }
+        #connectWithUs .container .card3 .left ul li i {
+          font-size: 1.3rem;
+          margin-left: 1rem; }
+        #connectWithUs .container .card3 .left ul li p {
+          text-align: right;
+          direction: rtl;
+          font-weight: 500; }
+
+#vaccine-header {
+  position: relative;
+  overflow: hidden;
+  height: 500px; }
+  #vaccine-header .img {
+    overflow: hidden;
+    margin-right: -10rem;
+    width: 100%;
+    height: 500px; }
+    #vaccine-header .img img {
+      display: block;
+      object-fit: cover;
+      object-position: right;
+      width: 100%;
+      height: 100%; }
+  #vaccine-header .header {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(40%, -50%); }
+    #vaccine-header .header h3 span {
+      color: #ff2881; }
+
+#vaccine-type {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important; }
+  #vaccine-type .container .text {
+    direction: rtl; }
+    #vaccine-type .container .text h3 {
+      color: #252525;
+      font-weight: 500; }
+    #vaccine-type .container .text p {
+      padding: 0;
+      margin: 0.2rem;
+      font-size: 1.1rem;
+      font-weight: 500; }
+  #vaccine-type .container .table {
+    direction: rtl; }
+  #vaccine-type .container .des {
+    margin-top: 3rem;
+    direction: rtl; }
+
+#talk-doctor-header {
+  position: relative;
+  overflow: hidden;
+  background-color: #fdfbfa;
+  height: 400px; }
+  #talk-doctor-header .container-fluid .img {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 400px; }
+    #talk-doctor-header .container-fluid .img img {
+      width: 60%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right; }
+  #talk-doctor-header .container-fluid .text {
+    background-color: rgba(252, 252, 252, 0.753);
+    padding: 1rem;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    direction: rtl;
+    transform: translate(-20%, -50%); }
+    #talk-doctor-header .container-fluid .text h1 {
+      color: #5a5c5c; }
+    #talk-doctor-header .container-fluid .text p {
+      color: #5a5c5c;
+      font-size: 1.2rem;
+      font-weight: 500; }
+
+@media screen and (max-width: 1250px) {
+  #talk-doctor-header .container-fluid .img img {
+    width: 70%; } }
+
+@media screen and (max-width: 1080px) {
+  #talk-doctor-header .container-fluid .img img {
+    width: 75%; } }
+
+@media screen and (max-width: 991px) {
+  #talk-doctor-header .container-fluid .img img {
+    width: 85%; } }
+
+#talk-doctor-form {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important; }
+  #talk-doctor-form .container {
+    direction: rtl; }
+    #talk-doctor-form .container h2 {
+      color: #353535; }
+    #talk-doctor-form .container p {
+      color: #5a5c5c;
+      font-size: 1.2rem;
+      font-weight: 500; }
+
+#profile {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important; }
+  #profile .container .profile-info {
+    direction: rtl; }
+    #profile .container .profile-info .card-footer {
+      direction: ltr; }
+
+@media screen and (max-width: 991px) {
+  .navbar {
+    padding: 0; }
+    .navbar .container-fluid {
+      padding: 0; }
+      .navbar .container-fluid .navbar-brand {
+        display: none; }
+      .navbar .container-fluid .navbar-collapse .navbar-nav {
+        display: block;
+        text-align: center; }
+        .navbar .container-fluid .navbar-collapse .navbar-nav .navbar-brand {
+          display: block !important; }
+      .navbar .container-fluid .btn-group {
+        margin-left: 1rem; }
+      .navbar .container-fluid .navbar-toggler {
+        margin: 0.5rem;
+        margin-left: 1rem; }
+      .navbar .container-fluid .navbar-toggler:focus {
+        box-shadow: 0px 0px 5px #5d5f61; }
+  #about-header {
+    height: 450px; }
+    #about-header .container-fluid {
+      position: relative; }
+      #about-header .container-fluid .image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 450px;
+        z-index: 1; }
+        #about-header .container-fluid .image img {
+          display: block;
+          width: 100%;
+          height: 450px; }
+      #about-header .container-fluid .image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #070f18ef;
+        z-index: 2; }
+      #about-header .container-fluid .text {
+        position: absolute;
+        overflow: hidden;
+        display: block;
+        color: #f0f0f0;
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+        direction: rtl;
+        width: 100%;
+        float: none;
+        z-index: 3; }
+        #about-header .container-fluid .text h1 {
+          color: #f0f0f0;
+          font-weight: 500; }
+        #about-header .container-fluid .text p {
+          font-size: 1.2rem; }
+  #connectWithUs {
+    background-image: linear-gradient(to right bottom, rgba(12, 201, 201, 0.849), rgba(176, 194, 18, 0.822)), url("/img/covid-19.png");
+    padding: 5rem 0; }
+    #connectWithUs .container .h1-header {
+      margin-bottom: 2rem; }
+    #connectWithUs .container .card3 {
+      display: flex;
+      flex-direction: column-reverse; }
+      #connectWithUs .container .card3 .right {
+        width: 100%; }
+      #connectWithUs .container .card3 .left {
+        width: 100%; } }
+
+#search-doctor {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important; }
+  #search-doctor .container .card {
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center; }
+    #search-doctor .container .card .card-img {
+      width: 180px;
+      height: 180px;
+      padding: .5rem;
+      margin: 0 auto; }
+      #search-doctor .container .card .card-img img {
+        display: block;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        margin-bottom: .5rem; }
+    #search-doctor .container .card .card-title {
+      display: block;
+      padding: 0rem;
+      margin: 0 1rem 0 1rem;
+      border-bottom: 1px solid #8d8d8d; }
+    #search-doctor .container .card .card-specialties {
+      margin-top: 1.2rem;
+      direction: rtl; }
+      #search-doctor .container .card .card-specialties h6 {
+        color: #1b927a;
+        font-weight: 600; }
+      #search-doctor .container .card .card-specialties p {
+        color: rgba(58, 67, 72, 0.8);
+        font-weight: 500;
+        text-align: right;
+        margin-left: 1rem;
+        margin-bottom: 0; }
+    #search-doctor .container .card .card-doctor-profile {
+      display: none;
+      padding: 1rem 0 1rem 0; }
+      #search-doctor .container .card .card-doctor-profile .btn-primary {
+        background: #1b927a;
+        border: none;
+        width: 100%;
+        font-size: 1.2rem;
+        font-weight: 700;
+        border-radius: 0;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        -webkit-transition: all 0.2s ease;
+        -ms-transition: all 0.2s ease;
+        transition: all 0.2s ease; }
+      #search-doctor .container .card .card-doctor-profile .btn-primary:not(:disabled):not(.disabled):active:focus, #search-doctor .container .card .card-doctor-profile .btn-primary:not(:disabled):not(.disabled).active:focus, #search-doctor .container .card .card-doctor-profile .show > .btn-primary.dropdown-toggle:focus {
+        box-shadow: none; }
+      #search-doctor .container .card .card-doctor-profile .btn-primary:hover {
+        background: #d35400;
+        box-shadow: none;
+        transform: translateY(-3px); }
+      #search-doctor .container .card .card-doctor-profile .btn-primary:active {
+        transform: translateY(-1px); }
+      #search-doctor .container .card .card-doctor-profile .btn-primary:focus {
+        box-shadow: none;
+        color: #ecf0f1; }
+      #search-doctor .container .card .card-doctor-profile .btn:focus {
+        box-shadow: none;
+        border: none; }
+    #search-doctor .container .card .card-doctor-icons {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem; }
+      #search-doctor .container .card .card-doctor-icons div {
+        color: #626a6e;
+        display: flex;
+        direction: rtl;
+        align-items: center; }
+        #search-doctor .container .card .card-doctor-icons div i {
+          font-size: 1rem;
+          margin: 0;
+          padding: 0;
+          margin-left: 1rem; }
+        #search-doctor .container .card .card-doctor-icons div p {
+          font-size: 1rem;
+          margin: 0;
+          padding: 0; }
