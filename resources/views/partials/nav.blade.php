@@ -17,13 +17,13 @@
             />
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">
+            <li><a class="dropdown-item" href="{{ route('profile') }}">
                 الصفحة الشخصية
                 <i class="fas fa-user"></i>
                 </a>
             </li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            {{-- <li><a class="dropdown-item" href="#">Another action</a></li> --}}
+            {{-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
             <li><hr class="dropdown-divider" /></li>
             <form action="{{ route('logout') }}" method="post">
               @csrf

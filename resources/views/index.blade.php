@@ -198,7 +198,17 @@
             <h1 class="text-center h1-header">أعراض فيروس كورونا</h1>
             <h4 class="mb-5 text-center">ما أعراض فيروس كورونا الجديد؟</h4>
             <div class="row">
-                <div class="mb-5 col-4">
+                @foreach ($symptom as $item)
+                    <div class="mb-5 col-4">
+                        <div class="symptom-card">
+                            <div class="mb-3 img">
+                                <img class="img-fluid" src="{{ asset($item->image) }}" alt="" />
+                            </div>
+                            <h3>{{ $item->name }}</h3>
+                        </div>
+                    </div>
+                @endforeach
+                {{-- <div class="mb-5 col-4">
                     <div class="symptom-card">
                         <div class="mb-3 img">
                             <img class="img-fluid" src="img/coronavirus-symptoms/06.png" alt="" />
@@ -245,7 +255,7 @@
                         </div>
                         <h3>الارتباك</h3>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -254,7 +264,19 @@
     <section id="slider" class="">
         <h1 class="text-center h1-header">كيف نحافظ على صحتنا</h1>
         <div class="regular slider">
-            <div>
+            @foreach ($protection as $item)
+                <div>
+                    <div class="card">
+                        <div class="img">
+                            <img src="{{ asset($item->image) }}" alt="" />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="text-center">{{ $item->name }}</h5>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            {{-- <div>
                 <div class="card">
                     <div class="img">
                         <img src="img/home.png" alt="" />
@@ -313,7 +335,7 @@
                         <h5 class="text-center"> تجنب الاماكن المزدحمة</h5>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 

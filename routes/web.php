@@ -3,11 +3,12 @@
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\AdminCountingController;
 use App\Http\Controllers\admin\AdminMessageController;
+use App\Http\Controllers\admin\AdminProtectionController;
+use App\Http\Controllers\admin\AdminSymptomController;
 use App\Http\Controllers\admin\AdminUserController;
 use App\Http\Controllers\admin\AdminVaccineController;
-use App\Http\Controllers\Testcontroler;
-use App\Models\Governorate;
-use App\Models\Vaccine;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,58 +42,28 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('/users', AdminUserController::class);
     Route::resource('/vaccine', AdminVaccineController::class);
+    Route::resource('/protection', AdminProtectionController::class);
+    Route::resource('/symptom', AdminSymptomController::class);
+});
+
+
+
+Route::group(['middleware' => ['auth']], function (){
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+    Route::put('/profile/update', [UserController::class, 'profileUpdate'])->name('profile.update');
+    Route::put('/password/update', [UserController::class, 'passwordUpdate'])->name('password.update2');
 });
 
 
 
 
 
-
-
-
-
-
-
-Route::get('/', function () {
-    $governorates = Governorate::all();
-    $injury = 0;
-    $recovery = 0;
-    $deaths = 0;
-    foreach ($governorates as $governorate) {
-        $injury += $governorate->injury;
-        $recovery += $governorate->recovery;
-        $deaths += $governorate->deaths;
-    }
-    // dd($injury);
-    return view('index', [
-        'injury' => $injury,
-        'recovery' => $recovery,
-        'deaths' => $deaths,
-        'governorates' => $governorates,
-    ]);
-})->name('home');
-
-
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-
-
-Route::get('/vaccine', function () {
-    return view('vaccine',[
-        'vaccines' => Vaccine::all(),
-    ]);
-})->name('vaccine');
-
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/vaccine', [HomeController::class, 'vaccine'])->name('vaccine');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::post('/message', [AdminMessageController::class, 'store'])->name('message.store');
 
+// Route::resource('/test', Testcontroler::class);
 
-Route::resource('/test', Testcontroler::class);
-
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';

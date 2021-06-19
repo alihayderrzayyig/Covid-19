@@ -6,22 +6,14 @@
         <p class="m-0">{{ auth()->user()->email }}</p>
     </div>
     <div class="admin-link">
-        <a href="#" class="d-flex flex-row-reverse @if ($active_sidebar=='main' ) active @endif">
+        <a href="{{ route('admin.index') }}" class="d-flex flex-row-reverse @if ($active_sidebar=='main' ) active @endif">
             <i class="fas fa-home align-self-center"></i>
             <p class="align-self-center">الصفحة الرئيسية</p>
         </a>
-        {{-- <a href="#" class="d-flex flex-row-reverse @if ($active_sidebar == 'achievments') active @endif">
-            <i class="fas fa-city align-self-center"></i>
-            <p class="align-self-center">الانجازات</p>
-        </a> --}}
         <a href="{{ route('admin.message.index') }}" class="d-flex flex-row-reverse @if ($active_sidebar=='admin-message' ) active @endif">
             <i class="fas fa-sms align-self-center"></i>
             <p class="align-self-center">الرسائل</p>
         </a>
-        {{-- <a href="#" class="d-flex flex-row-reverse @if ($active_sidebar == 'joinus') active @endif">
-            <i class="fas fa-user align-self-center"></i>
-            <p class="align-self-center">أنضم الينا</p>
-        </a> --}}
         <a href="{{ route('admin.vaccine.index') }}" class="d-flex flex-row-reverse @if ($active_sidebar == 'vaccine') active @endif">
             <i class="fas fa-syringe align-self-center"></i>
             <p class="align-self-center">اللقاحات</p>
