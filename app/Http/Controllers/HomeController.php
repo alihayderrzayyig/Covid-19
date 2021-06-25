@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Doctor;
 use App\Models\Governorate;
 use App\Models\Protection;
 use App\Models\Symptom;
@@ -43,5 +44,11 @@ class HomeController extends Controller
     public function about()
     {
         return view('about');
+    }
+
+    public function doctor(){
+        return \view('doctor',[
+            'doctors' => Doctor::all(),
+        ]);
     }
 }

@@ -22,6 +22,11 @@
             <i class="fas fa-chart-line align-self-center"></i>
             <p class="align-self-center">الاحصائيات</p>
         </a>
+        <a href="{{ route('admin.doctor.index') }}" class="d-flex flex-row-reverse @if ($active_sidebar=='doctor' ) active @endif">
+            <i class="fas fa-users align-self-center"></i>
+            <p class="align-self-center">الاطباء المعتمدين</p>
+        </a>
+
         <a href="{{ route('admin.users.index') }}" class="d-flex flex-row-reverse @if ($active_sidebar=='users' ) active @endif">
             <i class="fas fa-users align-self-center"></i>
             <p class="align-self-center">الاعظاء</p>

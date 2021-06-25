@@ -64,6 +64,9 @@
             <a class="nav-link @if ($active_sidebar=='vaccine' ) active @endif" href="{{ route('vaccine') }}">اللقاحات</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link @if ($active_sidebar=='doctor' ) active @endif" href="{{ route('doctor') }}">الاطباء المعتمدين</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link @if ($active_sidebar=='about' ) active @endif" href="{{ route('about') }}">عن الموقع</a>
           </li>
 

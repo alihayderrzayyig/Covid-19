@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\AdminCountingController;
+use App\Http\Controllers\admin\AdminDoctorController;
 use App\Http\Controllers\admin\AdminMessageController;
 use App\Http\Controllers\admin\AdminProtectionController;
 use App\Http\Controllers\admin\AdminSymptomController;
@@ -44,6 +45,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('/vaccine', AdminVaccineController::class);
     Route::resource('/protection', AdminProtectionController::class);
     Route::resource('/symptom', AdminSymptomController::class);
+    Route::resource('/doctor', AdminDoctorController ::class);
 });
 
 
@@ -61,6 +63,7 @@ Route::group(['middleware' => ['auth']], function (){
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/vaccine', [HomeController::class, 'vaccine'])->name('vaccine');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/doctor', [HomeController::class, 'doctor'])->name('doctor');
 Route::post('/message', [AdminMessageController::class, 'store'])->name('message.store');
 
 // Route::resource('/test', Testcontroler::class);

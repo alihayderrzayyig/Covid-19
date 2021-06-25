@@ -139,7 +139,7 @@ class AdminUserController extends Controller
         $date_user['isAdmin'] = $isAdmin;
 
         $user->update($date_user);
-        
+
         session()->flash('success', 'تم تحديث البيانات بنجاح');
         return \redirect()->back();
     }

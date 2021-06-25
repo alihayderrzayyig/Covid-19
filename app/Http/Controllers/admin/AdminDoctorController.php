@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Protection;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 
-class AdminProtectionController extends Controller
+
+class AdminDoctorController extends Controller
 {
     public function __construct()
     {
@@ -22,7 +24,20 @@ class AdminProtectionController extends Controller
      */
     public function index()
     {
-        //
+        $search = request()->query('doctors');
+        if ($search) {
+            $doctors = DB::table('users')
+                ->select('id', 'name', 'phone', 'location', 'specialty')
+                ->where('name', 'LIKE', '%' . $search . '%')
+                ->orWhere('location', 'LIKE', '%' . $search . '%')
+                ->paginate(30);
+        } else {
+            $doctors = DB::table('doctors')
+                ->select('id', 'name', 'phone', 'location', 'specialty')
+                ->paginate(30);
+        }
+
+        return view('admin.doctor.index', ['doctors' => $doctors])->with('no', 1);
     }
 
     /**
@@ -32,7 +47,7 @@ class AdminProtectionController extends Controller
      */
     public function create()
     {
-        return \view('admin.protection.create');
+        return view('admin.doctor.create');
     }
 
     /**
@@ -43,28 +58,32 @@ class AdminProtectionController extends Controller
      */
     public function store(Request $request)
     {
-
+        // \dd($request);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension(); // getting image extension
             $filename = time() . '.' . $extension;
-            $file->move('img/protection/', $filename);
+            $file->move('img/doctor/', $filename);
 
-            $img2 = Image::make('img/protection/' . $filename)->resize(600, 500);
+            $img2 = Image::make('img/doctor/' . $filename)->resize(600, 500);
             $img2->save();
 
-            $image = 'img/protection/' . $filename;
+            $image = 'img/doctor/' . $filename;
         }
 
 
-        Protection::create([
-            'name'     => $request->name,
-            'image'     => $image,
+        Doctor::create([
+            'name'          => $request->name,
+            'phone'         => $request->phone,
+            'specialty'     => $request->specialty,
+            'location'      => $request->location,
+            'image'         => $image,
         ]);
 
 
         session()->flash('success', 'تمة عملة الاضافة بنجاح');
         return \redirect()->back();
+
     }
 
     /**
@@ -73,9 +92,11 @@ class AdminProtectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Doctor $doctor)
     {
-        //
+        return \view('admin.doctor.show', [
+            'doctor' => $doctor
+        ]);
     }
 
     /**
@@ -84,10 +105,10 @@ class AdminProtectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Protection $protection)
+    public function edit(Doctor $doctor)
     {
-        return \view('admin.protection.create', [
-            'protection' => $protection
+        return view('admin.doctor.create', [
+            'doctor' => $doctor,
         ]);
     }
 
@@ -98,24 +119,31 @@ class AdminProtectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Protection $protection)
+    public function update(Request $request, Doctor $doctor)
     {
-        $date = $request->only(['name']);
+        // \dd($request);
+
+        $date = $request->only([
+            'name',
+            'phone',
+            'specialty',
+            'location'
+        ]);
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension(); // getting image extension
             $filename = time() . '.' . $extension;
-            $file->move('img/protection/', $filename);
+            $file->move('img/doctor/', $filename);
 
-            $img2 = Image::make('img/protection/' . $filename)->resize(600, 500);
+            $img2 = Image::make('img/doctor/' . $filename)->resize(600, 500);
             $img2->save();
 
-            $date['image'] = 'img/protection/' . $filename;
-            $protection->deleteImage();
+            $date['image'] = 'img/doctor/' . $filename;
+            $doctor->deleteImage();
         }
 
-        $protection->update($date);
+        $doctor->update($date);
 
         session()->flash('success', 'تمة عملة التحديث بنجاح');
         return \redirect()->back();
@@ -127,11 +155,11 @@ class AdminProtectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Protection $protection)
+    public function destroy(Doctor $doctor)
     {
-        $protection->deleteImage();
-        $protection->delete();
+        $doctor->deleteImage();
+        $doctor->delete();
         session()->flash('success', 'تمة عملة الحذف بنجاح');
-        return \redirect()->back();
+        return redirect()->back();
     }
 }

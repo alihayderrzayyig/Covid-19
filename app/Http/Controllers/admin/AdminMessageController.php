@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MessageRequest;
 use App\Models\Message;
 use Illuminate\Http\Request;
 
@@ -21,8 +22,7 @@ class AdminMessageController extends Controller
         ]);
     }
 
-    public function store(Request $request){
-        // dd($request);
+    public function store(MessageRequest $request){        
         Message::create([
             'name' => $request->name,
             'phone' => $request->phone,

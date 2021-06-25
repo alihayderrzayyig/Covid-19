@@ -24,11 +24,11 @@
 
     <nav class="flex-row-reverse navbar navbar-light nav-secondary">
         <a class="navbar-brand" href="{{ route('home') }}">Covid-19</a>
-        <a href="#">
-            sssss
+        {{-- <a href="#"> --}}
+            {{-- sssss --}}
             {{-- <i class="fas fa-bell @if (auth()->user()->unreadNotifications->count()) alert @endif"></i> --}}
             {{-- {{ auth()->user()->unreadNotifications->count() }} --}}
-        </a>
+        {{-- </a> --}}
     </nav>
 
 

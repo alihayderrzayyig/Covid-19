@@ -3,12 +3,28 @@
 @php $active_sidebar = 'about'; @endphp
 
 @section('css')
-
+    <style>
+        .session-messages {
+            width: 80%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            margin-left: auto;
+        }
+    </style>
 @endsection
 
 @section('content')
     @include('partials.nav')
 
+    <div class="mt-3 session-messages">
+        @include('partials.error-message')
+        @include('partials.success-message')
+    </div>
+
+    
 
     <section id="about-header">
         <div class="container-fluid">
@@ -76,27 +92,38 @@
                 <div class="right col-12 col-sm-12 col-md-12 col-lg-8">
                     <form action="{{ route('message.store') }}" method="post">
                         @csrf
+                        @if (session('message-error'))
+                            @if ($errors->any())
+                                <div class="text-right alert alert-danger">
+                                    <ul class="list-unstyled">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                        @endif
                         <div class="flex-row-reverse row justify-content-between">
                             <div class="col-sm-12 col-md-12 col-lg-4">
                                 <div class="mb-4 form-group">
-                                    <input class="form-control" name="name" type="text" placeholder="الاسم الكامل" />
+                                    <input class="form-control" name="name" value="{{ old('name') }}" type="text" placeholder="الاسم الكامل" />
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-4">
                                 <div class="mb-4 form-group">
-                                    <input class="form-control" name="phone" type="text" placeholder="رقم الهاتف" />
+                                    <input class="form-control" name="phone" value="{{ old('phone') }}" type="text" placeholder="رقم الهاتف" />
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-4">
                                 <div class="mb-4 form-group">
-                                    <input class="form-control" name="email" type="text" placeholder="البريد الالكتروني" />
+                                    <input class="form-control" name="email" value="{{ old('email') }}" type="text" placeholder="البريد الالكتروني" />
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="mb-4 form-group">
                                     <textarea class="form-control" name="desc" id="exampleFormControlTextarea1" rows="5np"
-                                        placeholder="الوصف"></textarea>
+                                        placeholder="الوصف">{{ old('desc') }}</textarea>
                                 </div>
                             </div>
 
@@ -111,15 +138,15 @@
                     <h4>هل لديك أسئلة؟</h4>
                     <ul>
                         <li class="flex-row-reverse d-flex">
-                            <i class="floatItem-icon fas fa-user-md"></i>
-                            <p>الرمادي, شارع الملعب, قرب عمارة الحاج ثامر</p>
+                            <i class="floatItem-icon fas fa-map-marker-alt"></i>
+                            <p>هيت البغدادي</p>
                         </li>
                         <li class="flex-row-reverse d-flex">
-                            <i class="floatItem-icon fas fa-user-md"></i>
+                            <i class="floatItem-icon fas fa-phone"></i>
                             <p>9647800000000+</p>
                         </li>
                         <li class="flex-row-reverse d-flex">
-                            <i class="floatItem-icon fas fa-user-md"></i>
+                            <i class="floatItem-icon fas fa-at"></i>
                             <p>info@email.com</p>
                         </li>
                     </ul>
